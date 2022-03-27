@@ -1,0 +1,23 @@
+ALTER TABLE POST
+ADD CONSTRAINT TypeCheck
+CHECK(PostType IN('Article', 'Event', 'Image', 'Video'));
+
+ALTER TABLE US_ED
+ADD CONSTRAINT DateCheck
+CHECK(EndDate >= StartDate);
+
+ALTER TABLE ENROLL
+ADD CONSTRAINT GrageCheck
+CHECK(Grade IN('A', 'B', 'C', 'D', 'E', 'F'));
+
+ALTER TABLE US_ED
+ADD CONSTRAINT IsGpaGrad
+CHECK (GPA >= 2);
+
+ALTER TABLE PROFILE
+ADD CONSTRAINT isWebSiteValid
+CHECK (Website LIKE '%@%.com');
+
+ALTER TABLE PROFILE_VIEWS
+ADD CONSTRAINT isCountPositive
+CHECK (ViewCount > 0);

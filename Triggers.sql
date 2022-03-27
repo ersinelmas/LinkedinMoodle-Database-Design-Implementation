@@ -1,0 +1,26 @@
+CREATE TRIGGER when_delete_company_delete_job_post
+ON COMPANY
+AFTER DELETE
+AS
+BEGIN
+DELETE FROM JOB_POST WHERE CompanyID = JOB_POST.CompanyID;
+END
+GO
+
+CREATE TRIGGER updateCheck
+ON US_ED
+AFTER UPDATE
+AS
+BEGIN
+SELECT 'Update successfull...'
+END
+GO
+
+CREATE TRIGGER when_delete_Course_delete_Course_Project
+ON COURSE
+AFTER DELETE
+AS
+BEGIN
+DELETE FROM COURSE_PROJECT WHERE CourseId = COURSE_PROJECT.CourseId
+END
+GO
